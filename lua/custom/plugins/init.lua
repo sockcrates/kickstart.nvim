@@ -20,10 +20,6 @@ local function lint_and_format()
   vim.cmd('Neoformat')
 end
 
-require('which-key').register({
-  f = { lint_and_format, 'Lint and format current buffer' }
-}, { prefix = '<leader>c' })
-
 require('which-key').add({
   {
     "<leader>sF",
@@ -31,6 +27,11 @@ require('which-key').add({
       require("telescope").extensions.live_grep_args.live_grep_args()
     end,
     desc = "Telescope live_grep_args"
+  },
+  {
+    "<leader>cf",
+    lint_and_format,
+    desc = "Lint and format current buffer"
   },
 })
 
