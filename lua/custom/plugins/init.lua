@@ -7,4 +7,12 @@ vim.opt.colorcolumn = '80,100'
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+local filetype = vim.bo.filetype
+if filetype == 'javascript' or filetype == 'javascriptreact' or filetype == 'lua' or filetype == 'typescript' or filetype == 'typescriptreact' then
+  vim.opt.tabstop = 2
+  vim.opt.shiftwidth = 2
+  vim.opt.softtabstop = true
+  vim.opt.expandtab = true
+end
+
 return {}
