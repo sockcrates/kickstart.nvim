@@ -2,9 +2,9 @@ return {
   {
     {
       'echasnovski/mini.nvim',
-      config = function ()
+      config = function()
         require('mini.map').setup()
-      end
+      end,
     },
   },
 }
