@@ -15,4 +15,12 @@ if filetype == 'javascript' or filetype == 'javascriptreact' or filetype == 'lua
   vim.opt.expandtab = true
 end
 
+local prettierThenEslint = function()
+  return { 'prettier', 'eslint' }
+end
+require('conform').formatters_by_ft.javascript = prettierThenEslint
+require('conform').formatters_by_ft.javascriptreact = prettierThenEslint
+require('conform').formatters_by_ft.typescript = prettierThenEslint
+require('conform').formatters_by_ft.typescriptreact = prettierThenEslint
+
 return {}
