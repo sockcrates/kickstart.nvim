@@ -9,30 +9,25 @@ vim.opt.relativenumber = true
 
 local function lint_and_format()
   local filetype = vim.bo.filetype
-  if
-    filetype == 'javascript'
-    or filetype == 'typescript'
-    or filetype == 'javascriptreact'
-    or filetype == 'typescriptreact'
-  then
-    vim.cmd('EslintFixAll')
+  if filetype == 'javascript' or filetype == 'typescript' or filetype == 'javascriptreact' or filetype == 'typescriptreact' then
+    vim.cmd 'EslintFixAll'
   end
-  vim.cmd('Neoformat')
+  vim.cmd 'Neoformat'
 end
 
-require('which-key').add({
+require('which-key').add {
   {
-    "<leader>sF",
-    function ()
-      require("telescope").extensions.live_grep_args.live_grep_args()
+    '<leader>sF',
+    function()
+      require('telescope').extensions.live_grep_args.live_grep_args()
     end,
-    desc = "Telescope live_grep_args"
+    desc = 'Telescope live_grep_args',
   },
   {
-    "<leader>cf",
+    '<leader>cf',
     lint_and_format,
-    desc = "Lint and format current buffer"
+    desc = 'Lint and format current buffer',
   },
-})
+}
 
 return {}
