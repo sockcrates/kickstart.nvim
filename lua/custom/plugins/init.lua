@@ -7,27 +7,4 @@ vim.opt.colorcolumn = '80,100'
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-local function lint_and_format()
-  local filetype = vim.bo.filetype
-  if filetype == 'javascript' or filetype == 'typescript' or filetype == 'javascriptreact' or filetype == 'typescriptreact' then
-    vim.cmd 'EslintFixAll'
-  end
-  vim.cmd 'Neoformat'
-end
-
-require('which-key').add {
-  {
-    '<leader>sF',
-    function()
-      require('telescope').extensions.live_grep_args.live_grep_args()
-    end,
-    desc = 'Telescope live_grep_args',
-  },
-  {
-    '<leader>cf',
-    lint_and_format,
-    desc = 'Lint and format current buffer',
-  },
-}
-
 return {}
