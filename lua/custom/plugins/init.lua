@@ -23,4 +23,6 @@ require('conform').formatters_by_ft.javascriptreact = prettierThenEslint
 require('conform').formatters_by_ft.typescript = prettierThenEslint
 require('conform').formatters_by_ft.typescriptreact = prettierThenEslint
 
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+
 return {}
