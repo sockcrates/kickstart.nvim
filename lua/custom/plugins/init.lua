@@ -7,6 +7,8 @@ vim.opt.colorcolumn = '80,100'
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'javascript', 'javascriptreact', 'lua', 'typescript', 'typescriptreact' },
   callback = function()
@@ -24,8 +26,6 @@ require('conform').formatters_by_ft.javascript = prettierThenEslint
 require('conform').formatters_by_ft.javascriptreact = prettierThenEslint
 require('conform').formatters_by_ft.typescript = prettierThenEslint
 require('conform').formatters_by_ft.typescriptreact = prettierThenEslint
-
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'c', 'cpp' },
